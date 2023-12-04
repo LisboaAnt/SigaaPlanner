@@ -42,3 +42,28 @@ Certifique-se de ter o Node.js e o PostgreSQL instalados em seu sistema.
 
    ```bash
    git clone https://github.com/LisboaAnt/SiteNode.git
+
+
+## 🛠 Technologies
+
+Este projeto utiliza as seguintes tecnologias:
+
+### Backend (Node.js, Express):
+
+- [Node.js](https://nodejs.org/): Um ambiente de execução JavaScript do lado do servidor.
+- [Express](https://expressjs.com/): Um framework web rápido, não opinativo e minimalista para Node.js.
+
+### Frontend (React.js):
+
+- [React](https://reactjs.org/): Uma biblioteca JavaScript para construção de interfaces de usuário.
+- [Create React App](https://create-react-app.dev/): Conjunto de ferramentas para criar, compilar e executar aplicativos React facilmente.
+
+### Banco de Dados (PostgreSQL):
+
+- [PostgreSQL](https://www.postgresql.org/): Um sistema de gerenciamento de banco de dados relacional de código aberto e poderoso.
+
+Além dessas tecnologias principais, o projeto pode envolver outras dependências e bibliotecas específicas para atender às necessidades específicas do desenvolvimento web. Certifique-se de consultar os READMEs nas pastas específicas (backend, frontend) para obter detalhes mais específicos sobre as dependências e como executar cada parte do projeto.
+
+## 💛 Contact
+
+antoniol.carvalho49@gmail.com
