@@ -7,12 +7,12 @@
 </p>
 
 <p align="center">
-  Um website desenvolvido utilizando Node.js e PostgreSQL.
+  Backend de um website desenvolvido utilizando Node.js e PostgreSQL.
 </p>
 
-## Executando o Website
+## Executando o Backend
 
-Para rodar o site, siga as instruções abaixo:
+Para rodar o backend, siga as instruções abaixo:
 
 ### Pré-requisitos
 
@@ -24,17 +24,3 @@ Certifique-se de que você tenha o Node.js e o PostgreSQL instalados em seu sist
 
    ```bash
    git clone https://github.com/LisboaAnt/SiteNode.git
-   
-2. Abra o terminal e navegue até a pasta do projeto.
-
-3. Instale as dependências do projeto:
-   ```bash
-   npm install
-
-4. Inicialize o servidor:
-    ```bash
-   node server.js
-
-5. Abra o seu navegador e acesse:  
-    ```bash
-   http://localhost:3000
