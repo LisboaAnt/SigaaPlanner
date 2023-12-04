@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigaa Planner</title>
+    <link rel="stylesheet" href="/views/login/telaLogin.css">
+</head>
+<body>
+    <div id="page">
+        <div class="login-left">
+            <header>
+                <a id="logo" href="../page/page.html" style="cursor: pointer; text-decoration: none; color: #2b2b2b;">Sigaa <strong>Planner</strong></a>
+            </header>
+            <main>
+                <div id="headline" class="title">
+                    <h1>Acesse a plataforma</h1>
+                    <p>Faça login ou cadastre-se para gerenciar as suas atividades ainda hoje.</p>
+                </div>
+                <form id="login-form">
+                    <div class="input-wrapper">
+                        <label for="email">Email</label>
+                        <input 
+                             id="email"   
+                             type="email"
+                             name="email" 
+                             placeholder="Digite seu email"
+                             required>      
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="label-wrapper">
+                            <label for="password">Senha</label>
+                            <a href="#">Esqueceu a senha?</a>
+                        </div>
+            
+                        <input 
+                             id="password"   
+                             type="password"
+                             name="password"
+                             placeholder="Digite sua senha"
+                             required>
+                        <img onclick="togglePassword()" class="eye" src="/views/login/TelaLoginAssets/eye-off.svg" alt="">
+                        <img onclick="togglePassword()" class="eye hide" src="/views/login/TelaLoginAssets/eye.svg" alt=""> 
+                    </div>
+                    <div id="mensagem"></div>
+                    <button id="entrar" type="submit">Entrar</button>
+    
+                    <div class="create-account">
+                          Ainda não tem uma conta?
+                          <a href="/views/login/cadastro.html">Cadastre-se</a>
+                    </div>
+                </form>
+            </main>
+        </div>
+        
+        <div class="login-right">
+        </div>
+    </div>
+    
+
+    <input type="hidden" id="token" name="token">
+    
+    <script>
+        function togglePassword(){
+            document
+            .querySelectorAll(".eye")
+            .forEach((eye) => eye.classList.toggle("hide"));
+            
+            const password = document.getElementById("password");  
+            const type = password.getAttribute("type") == "password" ? "text" : "password";
+            password.setAttribute("type", type);
+        } 
+
+
+        const logo = document.getElementById("logo");
+        logo.addEventListener("click", function() {
+        window.location.href = '../page/page.html';
+        });
+    </script>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          const email = document.getElementById('email').value;
+          const senha = document.getElementById('password').value;  
+
+          // Faça a solicitação para verificar o usuário e obter o token JWT
+          fetch('/user/verificar_usuario', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, senha })
+          })
+          .then(response => response.json())
+          .then(data => {
+            const { message, token,id } = data;
+            document.getElementById('mensagem').textContent = message;
+                if(message == 'Login bem-sucedido'){
+                    document.getElementById('mensagem').style.color = 'blue'; 
+                }else{document.getElementById('mensagem').style.color = 'red'; }
+
+            if (token) {
+              // Se a autenticação for bem-sucedida, armazene o token JWT no campo oculto
+              localStorage.removeItem("token");  
+              localStorage.setItem("token", token);
+              window.location.href = `http://localhost:3001/?userId=${id}`;
+
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            document.getElementById('mensagem').textContent = 'Erro durante o login';
+          });
+        });
+    </script>
+</body>
+</html>

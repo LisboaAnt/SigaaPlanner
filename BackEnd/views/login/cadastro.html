@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigaa Planner</title>
+    <link rel="stylesheet" href="/views/login/telaLogin.css">
+</head>
+<body>
+    <div  id="page">
+        <div class="login-rigth"></div>
+        <div class="login-left">
+            <header id="logo">
+                <a id="logo" href="../page/page.html" style="cursor: pointer; text-decoration: none; color: #2b2b2b;">Sigaa <strong>Planner</strong></a>
+            </header>
+            <main>
+                <div id="headline" class="title">
+                    <h1>Cadastre-se</h1>
+                    <p>Faça login ou cadastre-se para gerenciar as suas atividades ainda hoje.</p>
+                </div>
+                <form id="cad-from">
+                    <div class="input-wrapper">
+                        <label for="email">Email</label>
+                        <input 
+                             id="email"
+                             type="email"
+                             name="email" 
+                             placeholder="Digite seu email"
+                             required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="user">Usuário</label>
+                        <input 
+                             id="user"
+                             type="text"
+                             name="user" 
+                             placeholder="Digite o nome do seu usuário"
+                             required>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="label-wrapper">
+                                <label for="password">Senha</label>
+                        </div>
+            
+                        <input 
+                             id="password"
+                             type="password"
+                             name="password"
+                             placeholder="Digite sua senha"
+                             required>
+                        <img onclick="togglePassword()" class="eye" src="/views/login/TelaLoginAssets/eye-off.svg" alt="">
+                        <img onclick="togglePassword()" class="eye hide" src="/views/login/TelaLoginAssets/eye.svg" alt=""> 
+                    </div>
+    
+                    <div id="mensagem"></div>
+                    <button id="botao-cad" type="submit">Entrar</button>
+    
+                    <div class="create-account">
+                         Já tem uma conta?
+                          <a href="/views/login/login.html">Faça login</a>
+                    </div>
+    
+                </form>
+            </main>
+        </div>
+        
+      
+    </div>
+    <script>
+        function togglePassword(){
+            document
+            .querySelectorAll(".eye")
+            .forEach((eye)=>eye.classList.toggle("hide"))
+            
+            const type = password.getAttribute("type") == 
+            "password" ? 'text' : 'password'
+
+            password.setAttribute("type", type)
+        } 
+    </script>
+
+
+    <script>
+        document.getElementById('cad-from').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const user = document.getElementById('user').value;
+            const senha = document.getElementById('password').value;
+
+            // Faça a solicitação para cadastrar o usuário
+            fetch('/user/cadastrar_usuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, user, senha })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const { message } = data;
+                document.getElementById('mensagem').textContent = message;
+                if (message === 'Cadastro bem-sucedido') {
+                    document.getElementById('mensagem').style.color = 'blue';
+                    // Se o cadastro for bem-sucedido, você pode realizar ações adicionais aqui
+                    window.location.href = '/views/login/login.html';
+                } else {
+                    document.getElementById('mensagem').style.color = 'red';
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                document.getElementById('mensagem').textContent = 'Erro durante o cadastro';
+            });
+        });
+    </script>
+</body>
+</html>
