@@ -41,7 +41,7 @@ Certifique-se de ter o Node.js e o PostgreSQL instalados em seu sistema.
 1. Clone este repositório para o seu computador:
 
    ```bash
-   git clone https://github.com/LisboaAnt/SiteNode.git
+   git clone https://github.com/LisboaAnt/SigaaPlanner.git
 
 
 ## 🛠 Technologies
