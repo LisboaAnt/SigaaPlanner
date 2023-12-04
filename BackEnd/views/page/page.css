@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 32.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    background-color: #F0F8FF;
+}
+
+#page{
+    display: flex;
+    height: 100%;
+}
+
+#top{
+    background-color: #007150;
+    padding: 15px;
+    align-items: center;
+}
+
+li{
+    display: inline-block;
+    margin: 15px;
+}
+
+a{
+    color: white;
+    text-decoration:none;
+    font-size: 20px;
+}
+a:hover{
+    color: #000;
+    transition: 0.3s all;
+}
+
+ul{    
+    margin-right: 20px;
+    flex-direction: row;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#titulo{
+    flex-direction: column;
+    line-height: 35px;
+    color: white;
+    margin-left: 30px;
+}
+
+#principal{
+    margin-top: 100px;
+    flex-direction: row;
+    display: flex;
+}
+
+h2{
+    font-size: 56px;
+    line-height: 60px;
+    color: #333;
+    margin-left: 70px;
+}
+
+h3{
+    color: black;
+    font-size: 32px;
+    margin-left: 20px;
+}
+
+span{
+    color: #007150;
+    
+}
+
+p{
+
+    max-width: 800px;
+    margin-left: 80px;
+    margin-top: 50px;
+    font-size: 32px;
+    text-align: justify;
+}
+
+#mid{
+    margin-top: 280px;
+    background-color: #007150;
+    padding: 15px;
+
+}
+
+h4{
+    font-size: 32px;
+    color: white;
+    flex-direction: column;
+    line-height: 35px;
+    margin-left: 30px;
+      
+}
+
+#logotipo{
+    margin-top: 150px;
+}
+#ComoFunciona{
+    display: flex;
+    font-size: 56px;
+    color: #000;
+    margin-left: 70px;
+    flex-direction: column;
+}
+h5{
+    margin-top: 30px;
+}
+h6{
+    text-align: justify;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #333;
+    max-width: 1700px;
+}
+
+h7 li{
+    text-align: justify;
+    font-size: 22px;
+    color: #000;
+    max-width: 1500px;
+}
+
+h8{
+    font-size: 32px;
+    margin-top: 20px;
+    color: #000;
+    display: flex;
+
+}
+
+#bot{
+    background-color: #007150;
+    padding: 15px;
+    text-align: right;
+}
+
+h9{
+    color: white;
+}
