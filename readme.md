@@ -26,7 +26,7 @@ Este projeto consiste em três partes principais:
 
 3. **Banco de Dados (PostgreSQL):**
    - Utiliza o PostgreSQL como sistema de gerenciamento de banco de dados.
-   - Para mais detalhes sobre a configuração do banco de dados, consulte o README.md na pasta [database](./database/README.md).
+   - Para mais detalhes sobre a configuração do banco de dados, consulte o README.md na pasta [Banco_Postgree](./Banco_Postgree/README.md).
 
 ## Como Executar o Projeto
 
