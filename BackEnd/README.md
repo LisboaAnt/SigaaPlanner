@@ -24,3 +24,10 @@ Certifique-se de que você tenha o Node.js e o PostgreSQL instalados em seu sist
 
    ```bash
    git clone https://github.com/LisboaAnt/SiteNode.git
+
+2. Ajeite os modulos Node.
+
+3. Execute este repositório:
+
+   ```bash
+   node server.js
